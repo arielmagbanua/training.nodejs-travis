@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-travis",
+  "version": "1.0.0",
+  "description": "Travis demo with nodejs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arielmagbanua/nodejs-travis.git"
+  },
+  "keywords": [
+    "travis"
+  ],
+  "author": "ariel magbanua",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/arielmagbanua/nodejs-travis/issues"
+  },
+  "homepage": "https://github.com/arielmagbanua/nodejs-travis#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "express": "^4.17.1",
+    "mocha": "^6.2.0"
+  }
+}
