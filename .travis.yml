@@ -23,10 +23,10 @@ script:
   - ./test.sh
 
 deploy:
-  - provider: gae
-      keyfile: "YOUR SERVICE ACCOUNT JSON FILE"
-      project: traviscicd
-      no_promote: true
-      version: staging
-      on:
-        branch: staging
+  provider: gae
+    keyfile: "gae-creds.json"
+    project: traviscicd
+    no_promote: true
+    version: staging
+    on:
+      branch: staging
