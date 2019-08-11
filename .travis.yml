@@ -2,6 +2,11 @@ language: node_js
 node_js:
   - "10"
 
+stages:
+  - test
+  - name: deploy
+    if: branch = master
+
 before_install:
   # execute all of the commands which need to be executed before installing dependencies
 
@@ -11,6 +16,11 @@ install:
 before_script:
   # execute all of the commands which need to be executed before running actual tests
 
-script:
+# script:
   # execute all of the commands which should make the build pass or fail
-  - npm test
+  # - npm test
+
+jobs:
+  include:
+    - stage: test
+      script: ./test.sh
