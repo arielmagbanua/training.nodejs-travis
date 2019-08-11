@@ -1,3 +1,16 @@
 language: node_js
 node_js:
   - "10"
+
+before_install:
+  # execute all of the commands which need to be executed before installing dependencies
+
+install:
+  - npm install
+
+before_script:
+  # execute all of the commands which need to be executed before running actual tests
+
+script:
+  # execute all of the commands which should make the build pass or fail
+  - npm test
