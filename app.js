@@ -10,6 +10,10 @@ app.get('/',(req, res, next) => {
     res.send('<h1>Foo Bar</h1>');
 });
 
+app.get('/hello-world',(req, res, next) => {
+    res.send('<h1>Hello World</h1>');
+});
+
 const server = app.listen(8080, () => {
     const host = server.address().address;
     const port = server.address().port;
