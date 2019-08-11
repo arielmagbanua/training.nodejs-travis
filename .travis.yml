@@ -2,15 +2,10 @@ language: node_js
 node_js:
   - "10"
 
-# safelist branches
-branches:
-  only:
-    - master
-    - staging
-
 before_install:
   # execute all of the commands which need to be executed before installing dependencies
   - chmod +x test.sh
+  - openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in gae-creds.json.enc -out gae-creds.json -d
 
 install:
   - npm install
@@ -21,3 +16,12 @@ before_script:
 script:
   # execute all of the commands which should make the build pass or fail
   - ./test.sh
+
+deploy:
+  provider: gae
+    keyfile: "gae-creds.json"
+    project: traviscicd
+    no_promote: true
+    version: staging
+    on:
+      branch: staging

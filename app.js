@@ -10,6 +10,10 @@ app.get('/',(req, res, next) => {
     res.send('<h1>Foo Bar</h1>');
 });
 
-app.listen(3000);
+const server = app.listen(8080, () => {
+    const host = server.address().address;
+    const port = server.address().port;
+    console.log(`App listening at https://${host}:${port}`);
+});
 
 module.exports = app;
