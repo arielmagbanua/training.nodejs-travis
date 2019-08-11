@@ -2,12 +2,6 @@ language: node_js
 node_js:
   - "10"
 
-# safelist branches
-branches:
-  only:
-    - master
-    - staging
-
 before_install:
   # execute all of the commands which need to be executed before installing dependencies
   - chmod +x test.sh
