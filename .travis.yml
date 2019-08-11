@@ -11,6 +11,15 @@ before_install:
 - chmod +x test.sh
 install:
 - npm install
-before_script: 
+before_script:
+
 script:
 - "./test.sh"
+# deploy:
+#   provider: gae
+#     keyfile: "gae-creds.json"
+#     project: traviscicd
+#     no_promote: true
+#     version: staging
+#     on:
+#       branch: staging
