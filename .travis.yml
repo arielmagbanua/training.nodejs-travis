@@ -8,11 +8,6 @@ branches:
     - master
     - staging
 
-stages:
-  - test
-  - name: deploy
-    if: branch = master
-
 before_install:
   # execute all of the commands which need to be executed before installing dependencies
   - chmod +x test.sh
@@ -23,7 +18,6 @@ install:
 before_script:
   # execute all of the commands which need to be executed before running actual tests
 
-jobs:
-  include:
-    - stage: test
-      script: ./test.sh
+script:
+  # execute all of the commands which should make the build pass or fail
+  - ./test.sh
