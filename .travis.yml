@@ -21,6 +21,6 @@ deploy:
   keyfile: gae-creds.json
   project: traviscicd
   no_promote: true
-  version: staging
+  version: my-test-staging
   on:
     branch: staging
