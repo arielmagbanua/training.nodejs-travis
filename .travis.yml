@@ -15,11 +15,18 @@ script:
 - "./test.sh"
 
 deploy:
-  provider: gae
-  skip_cleanup: true
-  keyfile: gae-creds.json
-  project: traviscicd
-  no_promote: true
-  version: qa-staging
-  on:
-    branch: staging
+  - provider: gae
+    skip_cleanup: true
+    keyfile: gae-creds.json
+    project: traviscicd
+    no_promote: true
+    version: qa-staging
+    on:
+      branch: staging
+  - provider: gae
+    skip_cleanup: true
+    keyfile: gae-creds.json
+    project: traviscicd
+    version: production
+    on:
+      branch: master
