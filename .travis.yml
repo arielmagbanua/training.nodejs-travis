@@ -13,11 +13,12 @@ install:
 script:
 - "./test.sh"
 
-# deploy:
-#   provider: gae
-#     keyfile: "gae-creds.json"
-#     project: traviscicd
-#     no_promote: true
-#     version: staging
-#     on:
-#       branch: staging
+deploy:
+  provider: gae
+  skip_cleanup: true
+  keyfile: gae-creds.json
+  roject: traviscicd
+  no_promote: true
+  version: staging
+  on:
+    branch: staging
