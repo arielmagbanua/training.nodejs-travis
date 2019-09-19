@@ -1,12 +1,15 @@
 const path = require('path');
 const express = require('express');
-
 const router = express.Router();
 
+const viewPath = '../src';
+
 router.get('/about', (req, res, next) => {
-    res.send('<h1>Foo Bar</h1>');
+    res.sendFile(path.join(__dirname, viewPath, 'about.html'));
 });
 
 router.get('/', (req, res, next) => {
-    res.send('<h1>Foo Bar</h1>');
+    res.sendFile(path.join(__dirname, viewPath, 'index.html'));
 });
+
+module.exports = router;
