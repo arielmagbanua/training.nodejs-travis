@@ -12,7 +12,8 @@ install:
 - npm install
 
 script:
-- "./test.sh"
+- npm run build
+- npm test
 
 deploy:
   - provider: gae

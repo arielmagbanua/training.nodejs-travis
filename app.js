@@ -1,18 +1,18 @@
 const bodyParser = require('body-parser');
 const path = require('path');
 const express = require('express');
+
+const routes = require('./routes/routes');
+
 const app = express();
 
 // parse request body
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.get('/',(req, res, next) => {
-    res.send('<h1>Foo Bar</h1>');
-});
+// set a static directory
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/hello-world',(req, res, next) => {
-    res.send('<h1>Hello World</h1>');
-});
+app.use(routes);
 
 const server = app.listen(8080, () => {
     const host = server.address().address;
