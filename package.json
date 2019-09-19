@@ -3,10 +3,18 @@
   "version": "1.0.0",
   "description": "Travis demo with nodejs",
   "main": "app.js",
+  "browserslist": [
+    "last 2 version",
+    "> 2%"
+  ],
   "scripts": {
-    "test": "node_modules/.bin/mocha test --timeout 125000 --exit",
     "start-server": "node app.js",
-    "start": "node app.js"
+    "start-mon": "nodemon app.js",
+    "start": "node app.js",
+    "build": "gulp",
+    "eslint-src": "./node_modules/.bin/eslint src/js/**/*.js",
+    "mocha-chai": "node_modules/.bin/mocha test --timeout 125000 --exit",
+    "test": "npm run eslint-src && npm run mocha-chai"
   },
   "repository": {
     "type": "git",
@@ -23,9 +31,29 @@
   "homepage": "https://github.com/arielmagbanua/nodejs-travis#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "firebase": "^6.6.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "express": "^4.17.1",
-    "mocha": "^6.2.0"
+    "clean-css": ">=4.1.11",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "lodash.template": ">=4.5.0",
+    "mocha": "^6.2.0",
+    "nodemon": "^1.19.1",
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.13.0"
   }
 }

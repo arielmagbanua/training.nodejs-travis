@@ -15,12 +15,21 @@ describe('NodeJs with Travis', () => {
             });
     });
 
-    it('hello world', (done) => {
+    it('about', (done) => {
         chai.request(app)
-            .get('/hello-world')
+            .get('/about')
             .end((err, res) => {
                 expect(res).to.have.status(200);
                 done();
             });
     });
+
+    // it('hello-world', (done) => {
+    //     chai.request(app)
+    //         .get('/hello-world')
+    //         .end((err, res) => {
+    //             expect(res).to.have.status(200);
+    //             done();
+    //         });
+    // });
 });
