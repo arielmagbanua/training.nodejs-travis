@@ -37,10 +37,7 @@ const stylesTask = () => {
 			// outputStyle: 'expanded',
 			precision: 10
 		}))
-		.pipe(autoprefixer({
-			browsers: ['last 2 versions'],
-			cascade: false
-		}))
+		.pipe(autoprefixer())
 		.pipe(minifycss())
 		.pipe(sourcemaps.write('.'))
 		.pipe(dest('public/styles'));
@@ -53,8 +50,7 @@ const htmlTask = () => {
 			removeComments: true
 		}))
 		.pipe(dest('views'));
-}
-
+};
 
 exports.jsTask = jsTask;
 exports.stylesTask = stylesTask;
@@ -64,3 +60,5 @@ exports.watch = () => {
 	watch('src/**/*.html', series(htmlTask));
 	watch('src/styles/**/*.scss', series(stylesTask));
 };
+
+exports.default = series(jsTask, stylesTask, htmlTask);

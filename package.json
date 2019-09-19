@@ -3,12 +3,18 @@
   "version": "1.0.0",
   "description": "Travis demo with nodejs",
   "main": "app.js",
+  "browserslist": [
+    "last 2 version",
+    "> 2%"
+  ],
   "scripts": {
-    "test": "node_modules/.bin/mocha test --timeout 125000 --exit",
     "start-server": "node app.js",
     "start-mon": "nodemon app.js",
     "start": "node app.js",
-    "build": "gulp jsTask"
+    "build": "gulp",
+    "eslint-src": "./node_modules/.bin/eslint src/js/**/*.js",
+    "mocha-chai": "node_modules/.bin/mocha test --timeout 125000 --exit",
+    "test": "npm run eslint-src && npm run mocha-chai"
   },
   "repository": {
     "type": "git",
@@ -46,6 +52,8 @@
     "gulp-uglify": "^3.0.2",
     "lodash.template": ">=4.5.0",
     "mocha": "^6.2.0",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.13.0"
   }
 }
