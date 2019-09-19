@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const router = express.Router();
 
-const viewPath = '../src';
+const viewPath = '../views';
 
 router.get('/about', (req, res, next) => {
     res.sendFile(path.join(__dirname, viewPath, 'about.html'));

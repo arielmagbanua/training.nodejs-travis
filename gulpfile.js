@@ -7,6 +7,7 @@ const concat = require('gulp-concat');
 const plumber = require('gulp-plumber');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
+const htmlmin = require('gulp-htmlmin');
 
 const jsTask = () => {
 	return src([
@@ -27,28 +28,39 @@ const jsTask = () => {
 
 const stylesTask = () => {
 	return src('src/styles/main.scss')
-			.pipe(plumber())
-			.pipe(sass({
-				errLogToConsole: true,
-				outputStyle: 'compressed',
-				// outputStyle: 'compact',
-				// outputStyle: 'nested',
-				// outputStyle: 'expanded',
-				precision: 10
-			}))
-			.pipe(autoprefixer({
-				browsers: ['last 2 versions'],
-				cascade: false
-			}))
-			.pipe(minifycss())
-			.pipe(sourcemaps.write('.'))
-			.pipe(dest('public/styles'));
+		.pipe(plumber())
+		.pipe(sass({
+			errLogToConsole: true,
+			outputStyle: 'compressed',
+			// outputStyle: 'compact',
+			// outputStyle: 'nested',
+			// outputStyle: 'expanded',
+			precision: 10
+		}))
+		.pipe(autoprefixer({
+			browsers: ['last 2 versions'],
+			cascade: false
+		}))
+		.pipe(minifycss())
+		.pipe(sourcemaps.write('.'))
+		.pipe(dest('public/styles'));
 };
+
+const htmlTask = () => {
+	return src(['./src/**/*.html'])
+		.pipe(htmlmin({
+			collapseWhitespace: true,
+			removeComments: true
+		}))
+		.pipe(dest('views'));
+}
 
 
 exports.jsTask = jsTask;
 exports.stylesTask = stylesTask;
+exports.htmlTask = htmlTask;
 exports.watch = () => {
 	watch('src/js/**/*.js', series(jsTask));
+	watch('src/**/*.html', series(htmlTask));
 	watch('src/styles/**/*.scss', series(stylesTask));
 };

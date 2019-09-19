@@ -15,8 +15,8 @@ const generateQuoteCard = (quote) => {
     const imageUrl = quote.image_url ? quote.image_url : 'https://www.incimages.com/uploaded_files/image/970x450/getty_883231284_200013331818843182490_335833.jpg';
 
     const quoteHtml = `
-        <div class="quote w-full sm:w-1/1 md:w-1/2 lg:w-1/3 xl:w-1/5 mb-4">
-            <div class="max-w-sm rounded overflow-hidden shadow-lg">
+        <div class="quote w-full sm:w-1/1 md:w-1/2 lg:w-1/3 xl:w-1/5 mb-4 px-2">
+            <div class="max-w-sm overflow-hidden shadow-lg">
                 <img class="w-full"
                     src="${imageUrl}"
                     alt="Sunset in the mountains">
