@@ -5,8 +5,6 @@ node_js:
 before_install:
 - openssl aes-256-cbc -K $encrypted_c423808ed406_key -iv $encrypted_c423808ed406_iv
   -in gae-creds.json.enc -out gae-creds.json -d
-- chmod +x test.sh
-- cat gae-creds.json
 
 install:
 - npm install
