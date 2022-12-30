@@ -51,7 +51,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "lodash.template": ">=4.5.0",
-    "mocha": "^6.2.0",
+    "mocha": "^10.2.0",
     "nodemon": "^1.19.1",
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.13.0"
