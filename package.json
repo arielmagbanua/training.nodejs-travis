@@ -40,7 +40,7 @@
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "clean-css": ">=4.1.11",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
